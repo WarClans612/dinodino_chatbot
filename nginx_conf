@@ -1,0 +1,9 @@
+server{
+    listen 1112;
+    server_name 140.130.17.22;
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/var/www/chatbot/chatbot.sock;
+    }
+}
