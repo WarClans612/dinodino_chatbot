@@ -3,7 +3,9 @@ FROM mongo:4.2
 RUN apt-get update -y
 RUN apt-get install python3-pip python3-dev nginx vim -y
 RUN apt-get clean
-RUN pip3 install gunicorn flask gevent requests
+
+ADD chatbot/requirements.txt /requirements.txt
+RUN pip3 install -r /requirements.txt
 
 ADD nginx_conf /etc/nginx/sites-available/
 
